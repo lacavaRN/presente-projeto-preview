@@ -1,20 +1,4 @@
-/* CONTEÚDO EDITÁVEL: troque aqui textos, datas e fotos (src) */
-const MEM = [
-  { t: 'Pôr do sol', m: 'Arte da abertura', c: 'O navio indo embora com o sol atrás.', n: 'Troque por uma foto de vocês.', a: 'Navio ao pôr do sol', bg: 'var(--scene) 55% 55%/cover no-repeat' },
-  { t: 'Robin', m: 'Arqueologia e boas conversas', c: 'Ilhas, livros e boas conversas.', n: 'Calma por fora, curiosa por dentro.', a: 'Nico Robin', bg: 'var(--robin) 70% 28%/175% no-repeat' },
-  { t: 'Corazón', m: 'Silêncio e caos', c: 'Capuz vermelho e um coração no pijama.', n: 'Tropeça em tudo, acerta no que importa.', a: 'Corazón', bg: 'var(--cora) 80% 22%/170% no-repeat' },
-  { t: 'Os dois no convés', m: 'Uma tarde qualquer', c: 'Uma cena que cabe numa polaroid.', n: 'Espaço para uma anotação sua.', a: 'Robin e Corazón no convés ao pôr do sol', bg: 'var(--scene) 50% 50%/cover no-repeat' },
-  { t: 'Ilha da caveira', m: 'Primeira parada do mapa', c: 'Com chapéu de palha e tudo.', n: 'Espaço para uma anotação sua.', a: 'Ilha em forma de caveira com chapéu de palha', bg: 'var(--isl1) center/86% no-repeat,linear-gradient(#cfeaf4,#4f9dbb)' },
-  { t: 'Ilha do porto', m: 'Segunda parada do mapa', c: 'Um porto que nunca dorme.', n: 'Espaço para uma anotação sua.', a: 'Ilha com porto e uma grande árvore', bg: 'var(--isl2) center/90% no-repeat,linear-gradient(#cfeaf4,#4f9dbb)' }
-];
-
-const NOTES = [
-  ['Sua curiosidade torna tudo mais interessante.', 'Você pergunta o que ninguém pensou em perguntar.'],
-  ['Você transforma dias comuns em boas histórias.', 'Até fila de mercado vira capítulo.'],
-  ['Sua presença deixa tudo mais leve.', 'Sem esforço nenhum, o que é suspeito.'],
-  ['Você sempre me inspira a querer viver mais aventuras.', 'Culpa sua se eu comprar uma bússola.']
-];
-
+/* CONTEÚDO EDITÁVEL: ajuste aqui os textos da travessia. */
 const ISL = [
   ['Ilha da Primeira Memória', 'Começou meio sem querer. Por isso mesmo ficou bom.'],
   ['Ilha das Risadas', 'Aqui moram as piadas que só a gente entende.'],
@@ -77,82 +61,6 @@ $('#compass').addEventListener('click', () => {
     toast('O norte é onde você está.');
   }
 });
-
-/* Lembranças */
-const modal = $('#md');
-let lastMemoryButton = null;
-
-MEM.forEach((memory) => {
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.className = 'pol';
-  button.setAttribute('aria-label', `Abrir memória: ${memory.t}`);
-
-  const photo = document.createElement('div');
-  photo.className = 'ph';
-  photo.setAttribute('role', 'img');
-  photo.setAttribute('aria-label', memory.a);
-  photo.style.background = memory.bg;
-
-  const caption = document.createElement('span');
-  caption.className = 'cap';
-  caption.textContent = memory.t;
-
-  button.append(photo, caption);
-  button.addEventListener('click', () => {
-    lastMemoryButton = button;
-
-    const modalPhoto = $('#mp');
-    modalPhoto.style.background = memory.bg;
-    modalPhoto.setAttribute('role', 'img');
-    modalPhoto.setAttribute('aria-label', memory.a);
-    $('#mt').textContent = memory.t;
-    $('#mm').textContent = memory.m;
-    $('#mc').textContent = memory.c;
-    $('#mn').textContent = memory.n;
-
-    if (typeof modal.showModal === 'function') {
-      modal.showModal();
-    } else {
-      modal.setAttribute('open', '');
-    }
-  });
-
-  $('#grid').append(button);
-});
-
-$('#mx').addEventListener('click', () => modal.close());
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) modal.close();
-});
-modal.addEventListener('close', () => lastMemoryButton?.focus());
-
-/* Notas */
-NOTES.forEach(([summary, detail]) => {
-  const item = document.createElement('li');
-  const note = document.createElement('button');
-  note.type = 'button';
-  note.className = 'note';
-  note.setAttribute('aria-expanded', 'false');
-
-  const summaryElement = document.createElement('span');
-  summaryElement.textContent = summary;
-
-  const detailElement = document.createElement('span');
-  detailElement.className = 'more';
-  detailElement.textContent = detail;
-
-  note.append(summaryElement, detailElement);
-  note.addEventListener('click', () => {
-    const expanded = note.getAttribute('aria-expanded') === 'true';
-    note.setAttribute('aria-expanded', String(!expanded));
-  });
-
-  item.append(note);
-  $('#notes').append(item);
-});
-
-$('#heart').addEventListener('click', () => toast('(silêncio)'));
 
 /* Mapa e travessia */
 const route = $('#route');

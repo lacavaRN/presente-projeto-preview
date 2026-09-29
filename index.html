@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Uma pequena aventura para você</title>
-<meta name="description" content="Uma pequena aventura interativa feita à mão, com lembranças, mapa e uma surpresa final.">
+<meta name="description" content="Uma pequena aventura interativa feita à mão, com mapa e uma surpresa final.">
 <meta name="theme-color" content="#0f1a33">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 <body>
 <a class="skip" href="#comeco">Pular para o conteúdo</a>
 <div id="bar" aria-hidden="true"></div>
-<nav class="side" aria-label="Capítulos"><a href="#hero">Início</a><a href="#comeco">Começo</a><a href="#lembr">Lembranças</a><a href="#esp">Você</a><a href="#aventura">Nossa Aventura</a><a href="#surp">Surpresa</a></nav>
+<nav class="side" aria-label="Capítulos"><a href="#hero">Início</a><a href="#comeco">Começo</a><a href="#aventura">Nossa Aventura</a><a href="#surp">Surpresa</a></nav>
 <main>
 <header id="hero">
     <div class="txt">
@@ -39,21 +39,8 @@
   </div>
 </div></section>
 
-<section id="lembr" class="tear" aria-labelledby="t2"><div class="wrap">
-  <h2 class="kick" id="t2">Memories</h2><p class="script" style="font-size:1.6rem">Lembranças</p>
-  <p>Algumas lembranças mereciam uma ilha só para elas. Toque em uma para abrir.</p>
-  <div class="grid" id="grid"></div>
-</div></section>
-
-<section id="esp" class="paper tear" aria-labelledby="t3"><div class="wrap grid">
-  <div class="rv"><h2 class="kick" id="t3">Why you're special</h2><p class="script" style="font-size:1.6rem">Por que você é especial</p>
-    <p style="margin:12px 0">Não é sobre grandes discursos, mas sobre as pequenas coisas que fazem tudo isso ter sentido.</p>
-    </div>
-  <div class="rv" style="position:relative"><div class="cz" role="img" aria-label="Corazón de capuz vermelho, olhando de lado"></div><button type="button" class="heart" id="heart" aria-label="Um coração meio torto. Toque."><svg viewBox="0 0 64 60"><path d="M32 56C8 38 4 20 14 10c8-7 16-2 18 6 2-8 10-13 18-6 10 10 6 28-18 46z" fill="#d8455f"/></svg></button><ul class="notes" id="notes"></ul></div>
-</div></section>
-
-<section id="aventura" class="tear" aria-labelledby="t4"><div class="wrap">
-  <h2 class="kick" id="t4">Our Adventure</h2><p class="script" style="font-size:1.6rem">Nossa Aventura</p>
+<section id="aventura" class="tear" aria-labelledby="t2"><div class="wrap">
+  <h2 class="kick" id="t2">Our Adventure</h2><p class="script" style="font-size:1.6rem">Nossa Aventura</p>
   <p>Arraste o barco pela rota ou toque direto em uma ilha.</p>
   <div class="map" id="map">
     <svg viewBox="0 0 400 500" aria-hidden="true"><path d="M0 60Q50 40 100 60T200 60T300 60T400 60M0 210Q50 190 100 210T200 210T300 210T400 210M0 360Q50 340 100 360T200 360T300 360T400 360M0 470Q50 450 100 470T200 470T300 470T400 470" fill="none" stroke="rgba(169,216,232,.18)" stroke-width="2"/><path id="route" d="M90 100C300 40 380 170 250 220S40 270 90 360S290 370 310 440" fill="none" stroke="rgba(255,248,232,.7)" stroke-width="3" stroke-dasharray="4 9" stroke-linecap="round"/><path id="prog" d="M90 100C300 40 380 170 250 220S40 270 90 360S290 370 310 440" pathLength="1" fill="none" stroke="#F9E7A2" stroke-width="4" stroke-dasharray="1" stroke-dashoffset="1" stroke-linecap="round"/></svg>
@@ -64,20 +51,19 @@
   <p id="done" role="status" hidden>Travessia concluída</p>
 </div></section>
 
-<section id="surp" class="tear" aria-labelledby="t5"><div class="wrap">
-  <h2 class="kick" id="t5">Surprise</h2><p class="script" style="font-size:1.6rem">Surpresa</p>
+<section id="surp" class="tear" aria-labelledby="t3"><div class="wrap">
+  <h2 class="kick" id="t3">Surprise</h2><p class="script" style="font-size:1.6rem">Surpresa</p>
   <p>Tem mais uma coisa no final.</p>
   <div class="env" id="env" aria-hidden="true"><div class="letter"></div><div class="art"></div></div>
   <p style="margin-top:22px"><button type="button" class="btn" id="open" aria-expanded="false" aria-controls="final">Abrir surpresa</button></p>
-  <div id="final"><p class="script" style="font-size:1.35rem">Obrigada por fazer parte dessa jornada. ♡</p><p style="margin-top:10px">Isso foi só um pedaço do mapa. O resto a gente descobre junto.</p><p style="margin-top:16px"><a class="btn" href="#lembr">Voltar às lembranças</a></p></div>
+  <div id="final"><p class="script" style="font-size:1.35rem">Obrigada por fazer parte dessa jornada. ♡</p><p style="margin-top:10px">Isso foi só um pedaço do mapa. O resto a gente descobre junto.</p><p style="margin-top:16px"><a class="btn" href="#comeco">Voltar ao começo</a></p></div>
 </div></section>
 </main>
 <footer>Feito à mão, com carinho.</footer>
 
-<dialog id="md" aria-labelledby="mt"><div class="in"><div class="ph" id="mp"></div><h3 id="mt"></h3><p id="mm" style="opacity:.7;font-size:.9rem"></p><p id="mc" style="margin-top:8px"></p><p class="hand" id="mn" style="margin-top:8px"></p><button type="button" class="x" id="mx">Fechar</button></div></dialog>
 <div id="toast" role="status"></div>
 
-<noscript><p style="padding:16px;text-align:center">Ative o JavaScript para usar as lembranças, o mapa e a surpresa interativa.</p></noscript>
+<noscript><p style="padding:16px;text-align:center">Ative o JavaScript para usar o mapa e a surpresa interativa.</p></noscript>
 <script src="script.js"></script>
 </body>
 </html>
